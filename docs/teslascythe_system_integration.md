@@ -1,50 +1,52 @@
-# TeslaScythe – System Integration and Power Management
+# TeslaScythe – System Integration Overview
 
-This document details the overall integration of the TeslaScythe subsystems and the power management strategy to optimize energy harvesting, storage, and delivery.
-
----
-
-## 1. Power Flow Architecture
-
-- Energy harvested from multiple sources (EM/RF, thermal, vibration, radiation, quantum) converges at the Power Combiner Bus.
-- Smart power regulation circuits prioritize continuous, stable output to downstream loads.
-- Buffer storage using graphene supercapacitors smooths transient power fluctuations before feeding the solid-state battery pack.
+This document describes the integration strategy of all TeslaScythe subsystems into a cohesive energy harvesting unit.
 
 ---
 
-## 2. Subsystem Interfacing
+## 1. Mechanical Integration
 
-- All harvesting modules interface via standardized connectors and signal protocols.
-- Impedance matching and tuning circuits dynamically optimize antenna and harvesting element efficiency.
-- Thermal harvesters and vibration sensors include isolation mounts to prevent mechanical interference.
-
----
-
-## 3. Control and Monitoring
-
-- Central MCU orchestrates subsystem operation, monitors health, and manages safety protocols.
-- Adaptive algorithms balance power distribution based on current demand and harvesting conditions.
-- Real-time telemetry enables remote diagnostics and firmware updates.
+- Internal skeleton frame supports all harvesting modules securely.
+- Shock-isolated mounts protect sensitive components from spacecraft vibration.
+- Thermal interface materials ensure efficient heat transfer where needed.
+- Compact layout fits within 3 ft × 2 ft × 2 ft envelope.
 
 ---
 
-## 4. Safety and Redundancy
+## 2. Electrical Integration
 
-- Redundant communication paths and power buses ensure reliability.
-- Automatic fault isolation disables malfunctioning modules without affecting overall system operation.
-- Compliance with spacecraft safety standards including EMI/EMC and radiation tolerance.
+- Power combiner bus aggregates energy from all harvesters.
+- Smart power management ICs regulate voltage, current, and charge flow.
+- Redundant safety disconnects provide fault isolation.
+- High-quality wiring and connectors designed for space-grade durability.
 
 ---
 
-## 5. Physical Integration
+## 3. Thermal Management
 
-- Modular design fits within the 3x2x2 ft volume constraint.
-- Lightweight aerospace materials used for chassis and mounting to minimize added mass.
-- Internal layout designed for optimal thermal dissipation and minimal electromagnetic interference.
+- Passive heat spreaders distribute heat evenly.
+- Thermal interface pads optimize contact with spacecraft thermal environment.
+- Harvested thermal energy converted efficiently by TEG arrays.
+
+---
+
+## 4. Software Integration
+
+- MCU firmware manages sensor data and power routing.
+- Safety protocols run continuously to detect anomalies.
+- Adaptive tuning algorithms optimize harvester efficiency in real-time.
+
+---
+
+## 5. Testing and Validation
+
+- Module-level and full system tests planned to validate performance.
+- Environmental testing to ensure operation under spacecraft conditions.
+- Long-duration reliability tests to confirm mission readiness.
 
 ---
 
 ## Notes
 
-- Integration strategy emphasizes modularity, repairability, and upgrade paths.
-- System designed to maximize uptime and continuous power availability to astronaut suits.
+- Integration emphasizes modularity for easy repair and upgrades.
+- Design maintains strict adherence to spacecraft safety and operational standards.
