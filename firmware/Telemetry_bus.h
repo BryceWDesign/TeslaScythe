@@ -1,27 +1,16 @@
-// Telemetry_bus.h
-// TeslaScythe Firmware – Header for Telemetry Bus Functions
+// telemetry_bus.h
+// Header for TeslaScythe telemetry UART communication module
 
 #ifndef TELEMETRY_BUS_H
 #define TELEMETRY_BUS_H
 
-#include <stdint.h>
+// Initialize telemetry communication (UART, etc.)
+void telemetry_init(void);
 
-// Struct to hold telemetry packet data
-typedef struct {
-    float vbat;           // Battery voltage
-    float ibat;           // Battery current
-    float temp_batt;      // Battery temperature
-    float temp_reg;       // Regulator temperature
-    uint8_t status_flags; // Status flags for fault conditions
-    float vrf;            // RF voltage level
-    float vteg;           // TEG output voltage
-    float vpiezo;         // Piezo voltage level
-} TelemetryPacket;
+// Send telemetry data over UART in CSV format
+void telemetry_send(void);
 
-// Initializes the telemetry system (communication stack, buffer, etc.)
-void TelemetryBus_Init(void);
-
-// Collects telemetry data and transmits it over the active comms link
-void TelemetryBus_CollectAndSend(void);
+// UART send byte placeholder (to be implemented in .c)
+void uart_send_byte(char byte);
 
 #endif // TELEMETRY_BUS_H
