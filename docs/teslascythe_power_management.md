@@ -1,37 +1,39 @@
-# TeslaScythe – Power Management System
+# TeslaScythe – Power Management Module
 
 ## Overview
 
-The power management system handles power routing, regulation, and distribution from multiple energy harvesting sources into the storage subsystem. It ensures stable voltage and current delivery to critical loads while protecting against faults and environmental extremes.
+This document describes the power management architecture of TeslaScythe, detailing how multiple energy harvesters are integrated and managed to provide stable, reliable power to the system loads.
 
 ---
 
 ## Components
 
-- **Power Bus Controller**  
-  Smart controller with buck/boost and MPPT functionality for optimal energy conversion and load balancing.
-
-- **Voltage Regulators**  
-  Ultra-low dropout (LDO) regulators and DC-DC converters provide stable voltages for sensors, MCU, and communication modules.
-
-- **Supercapacitor Buffer**  
-  High-density graphene supercapacitors absorb transient surges and provide short-term high-current output.
-
-- **Battery Pack**  
-  Solid-state Li-Si battery bank stores harvested energy with advanced BMS for safety and longevity.
+- **Energy Harvesters:** RF antenna array, thermoelectric generators (TEG), vibration MEMS, radiation layer, Casimir cells.  
+- **Power Combiner Bus:** Aggregates power inputs from diverse harvesters with diode isolation and monitoring.  
+- **Voltage Stabilizers:** Regulate voltage from harvesters to ensure smooth input to storage elements.  
+- **Energy Storage:** Graphene supercapacitors for buffering and Li-Si solid-state batteries for long-term storage.  
+- **Power Bus Regulator:** Buck/boost converters, MPPT controllers, and load balancing circuitry controlled by MCU.
 
 ---
 
-## Safety and Monitoring
+## Functional Description
 
-- Thermal sensors monitor battery and regulator temperatures.  
-- Overvoltage, undervoltage, and short-circuit protections included.  
-- MCU firmware implements real-time diagnostics and fault recovery routines.
+- Each harvester source is independently monitored and dynamically weighted to maximize total system efficiency.  
+- Overvoltage, undervoltage, and temperature protections are implemented at both hardware and firmware levels.  
+- Power flow prioritizes battery charging while maintaining capacitive buffers for transient surges.  
+- MCU algorithms handle load scheduling to prevent system brownouts.
 
 ---
 
-## Notes
+## Design Considerations
 
-- All components selected for aerospace-grade radiation tolerance and temperature resilience.  
-- Modular design allows subsystem replacement without system downtime.  
-- Firmware upgrades can be applied OTA through secure bootloader.
+- System designed for high radiation tolerance and wide temperature range (-50°C to +120°C).  
+- Modular power subsystems enable replacement or upgrade without total system downtime.  
+- Redundancy in key power pathways ensures fault tolerance.  
+
+---
+
+## References
+
+- Detailed circuit schematics and PCB layouts are located in `/circuits/` and `/boards/`.  
+- Firmware power management code in `/firmware/power_management/`.
