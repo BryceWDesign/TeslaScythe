@@ -2,62 +2,54 @@
 
 ## Overview
 
-This document outlines the comprehensive safety measures integrated into the TeslaScythe ambient energy harvester to ensure safe operation within spacecraft environments.
+This document outlines the mandatory safety protocols for installation, operation, and maintenance of the TeslaScythe ambient energy harvester to ensure crew safety and system integrity.
 
 ---
 
-## Electrical Safety
+## Installation Safety
 
-- Use of polyfuses on all power lines to prevent overcurrent
-- Manual hardware disconnect switch accessible for emergency shutdown
-- Overvoltage and undervoltage protection circuits on battery and supercapacitor systems
-- Use of radiation-hardened ICs to prevent unexpected behavior under cosmic radiation
-
----
-
-## Thermal Safety
-
-- Thermal interface materials to manage heat dissipation from TEGs and power electronics
-- Internal temperature monitoring with automatic shutdown if thresholds exceeded
-- Passive heat spreaders integrated into chassis to avoid hotspots
-
----
-
-## Radiation Safety
-
-- Multi-layered shielding using boron-carbide and lead-alternative nano laminates
-- Radiation sensors continuously monitor exposure levels, triggering alerts if dangerous levels are detected
-- Beta shielding layers over betavoltaic cells to prevent radiation leakage
-
----
-
-## Mechanical Safety
-
-- Enclosure designed with aerospace-grade carbon fiber and titanium frame to withstand impact and vibration
-- No external moving parts to minimize risk of mechanical failure
-- Shock-isolated mounting of vibration harvesters to protect sensitive components
+- Verify spacecraft power is off before installation  
+- Use anti-static wrist straps when handling electronic components  
+- Ensure all mechanical mounts are secure and free of sharp edges  
+- Confirm radiation shielding layers are properly installed and intact  
 
 ---
 
 ## Operational Safety
 
-- Firmware includes watchdog timers and failsafe routines to handle unexpected errors
-- Redundant monitoring sensors to cross-verify critical parameters
-- Regular self-diagnostics with reporting to spacecraft main control system
+- Monitor temperature and radiation levels continuously  
+- Avoid exposure to any external mechanical shocks beyond design tolerances  
+- Do not open or tamper with internal modules during operation  
+- Use onboard emergency disconnect switch in case of anomaly  
 
 ---
 
-## Compliance
+## Maintenance Safety
 
-- Meets SpaceX and NASA safety standards for manned spacecraft equipment
-- Tested for electromagnetic compatibility and minimal interference
-- Designed with astronaut safety as highest priority
+- Always power down and isolate TeslaScythe unit before maintenance  
+- Use appropriate personal protective equipment (PPE) for radiation components  
+- Handle betavoltaic cells with care to avoid damage or contamination  
+- Follow spacecraft biohazard and contamination control procedures  
 
 ---
 
 ## Emergency Procedures
 
-- Manual shutdown procedure via onboard hardware switch
-- Safe mode operation limits power output to prevent damage
-- Alerts communicated via spacecraft telemetry for immediate action
+- In case of power surge or failure, immediately activate hardware disconnect  
+- Report anomalies to spacecraft control center with detailed logs  
+- Isolate the unit physically if radiation leakage or thermal runaway is suspected  
+- Do not attempt in-situ repairs without express authorization and training  
 
+---
+
+## Compliance and Training
+
+- All personnel must complete TeslaScythe safety training before handling  
+- Follow spacecraft-wide safety standards as primary guidelines  
+- Keep this document accessible in operational manuals and onboard databases  
+
+---
+
+## Contact
+
+For emergency support or safety concerns, contact TeslaScythe safety officer or spacecraft mission control.
