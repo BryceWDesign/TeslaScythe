@@ -1,48 +1,37 @@
 # TeslaScythe – Power Management System
 
-This document outlines the power management subsystem of TeslaScythe, detailing how energy harvested from various sources is regulated, stored, and distributed to maintain system stability and reliability.
-
----
-
 ## Overview
 
-The power management system coordinates energy flow from the RF Antenna Grid, Thermoelectric Generators (TEG), Vibration MEMS, Radiation Layer, and Casimir Cells into usable power. It balances charging, voltage stabilization, and load distribution while protecting against fault conditions.
+The power management system handles power routing, regulation, and distribution from multiple energy harvesting sources into the storage subsystem. It ensures stable voltage and current delivery to critical loads while protecting against faults and environmental extremes.
 
 ---
 
 ## Components
 
-### 1. Power Bus Controller
+- **Power Bus Controller**  
+  Smart controller with buck/boost and MPPT functionality for optimal energy conversion and load balancing.
 
-- Central controller using TI bq40z80 or equivalent.
-- Manages buck/boost DC-DC conversion with integrated MPPT for maximum energy extraction.
-- Monitors current, voltage, temperature with built-in safety cutoffs.
+- **Voltage Regulators**  
+  Ultra-low dropout (LDO) regulators and DC-DC converters provide stable voltages for sensors, MCU, and communication modules.
 
-### 2. Graphene Supercapacitors
+- **Supercapacitor Buffer**  
+  High-density graphene supercapacitors absorb transient surges and provide short-term high-current output.
 
-- Short-term energy buffer.
-- Enables high-rate charge/discharge cycles to smooth transient loads.
-- 2.7V to 5.5V range, total capacity 10F to 100F.
-
-### 3. Li-Si Solid-State Battery Bank
-
-- Primary long-term energy storage.
-- Provides stable power during low harvesting conditions.
-- Radiation-hardened packaging suitable for spaceflight environments.
-
-### 4. Voltage Stabilizer
-
-- Ultra-low dropout regulators or MPPT DC-DC converters stabilize input voltages.
-- Ensures consistent supply voltage to onboard MCU and sensors.
+- **Battery Pack**  
+  Solid-state Li-Si battery bank stores harvested energy with advanced BMS for safety and longevity.
 
 ---
 
-## Power Flow Diagram
+## Safety and Monitoring
 
-```plaintext
-[ Energy Harvesters ] --> [ Signal Rectifiers & Matching ] --> [ Power Combiner Bus ] --> [ Voltage Stabilizer ] --> [ Graphene Buffer ] --> [ Battery Bank ] --> [ Load ]
-# TeslaScythe – Power Management System
+- Thermal sensors monitor battery and regulator temperatures.  
+- Overvoltage, undervoltage, and short-circuit protections included.  
+- MCU firmware implements real-time diagnostics and fault recovery routines.
 
-...
+---
 
-Firmware upgrades can be applied OTA through secure bootloader.
+## Notes
+
+- All components selected for aerospace-grade radiation tolerance and temperature resilience.  
+- Modular design allows subsystem replacement without system downtime.  
+- Firmware upgrades can be applied OTA through secure bootloader.
